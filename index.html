@@ -1,0 +1,66 @@
+ctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>The Holy Trinity</title>
+    <meta name="description" content="The Holy Trinity">
+    <meta name="author" content="Naveen Bandarage">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+    <!-- Open Graph -->
+    <meta name="og:title" content="The Holy Trinity" />
+    <meta name="og:url" content="https://timdeschryver.dev/posts/gridsome-social-cards" />
+    <meta name="og:description" content="Tracks the three greatest currencies" />
+    <meta name="og:type" content="article" />
+    <meta name="og:image" content="" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@naveenbandarage" />
+    <meta name="twitter:title" content="The Holy Trinity" />
+    <meta name="twitter:description" content="Tracks the three greatest currencies" />
+    <meta name="twitter:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <div>
+                <p class="text">The Holy Trinity of $BTC, $ETH and $DOGE go up: </p>
+                <p class="number transparent BTC" id="number">$4</p>
+                <p class="number transparent ETH" id="number">$4</p>
+                <p class="number transparent DOGE" id="number">$4</p>
+                <p class="text">Every Day</p>
+            </div>
+        </div>
+        <footer>By <a class="handle" href="https://twitter.com/naveenbandarage"> @naveenbandarage</a> <span
+                class="source">(<a href="https://github.com/NaveenBandarage/TheHolyTrinity">The plug.</a>)</span>
+        </footer>
+    </div>
+    </div>
+    <script>
+        function handleData(data) {
+            const genesis = new Date(2009, 1, 3);
+            const now = new Date();
+            const deltaSeconds = now.getTime() - genesis.getTime();
+            const deltaDays = deltaSeconds / (1000 * 3600 * 24);
+            const nguDaily = data.ticker.price / deltaDays;
+            const el = document.getElementById("number");
+            if (el) {
+                el.innerHTML = `\$${nguDaily.toFixed(2)}`;
+                el.classList.remove("transparent BTC")
+            }
+        }
+
+        // TODO: error handling
+        fetch('https://api.cryptonator.com/api/ticker/btc-usd')
+            .then(response => response.json())
+            .then(data => handleData(data))
+    </script>
+</body>
+
+</html>
