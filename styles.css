@@ -1,0 +1,53 @@
+body {
+    font-family: 'Special Elite', cursive;
+    background-color: #FF9900;
+} 
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+a:link {
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.text {
+    font-size: 2rem;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.number {
+    font-size: 6rem;
+    text-align: center;
+    padding: 0;
+    margin: 4rem 0 2rem 0;
+}
+
+.transparent {
+    color: transparent;
+}
+
+.handle {
+    margin: 0 0.5rem 0 0.5rem;
+}s

@@ -1,4 +1,4 @@
-ctype html>
+<!doctype html>
 
 <html lang="en">
 
@@ -30,10 +30,10 @@ ctype html>
     <div class="container">
         <div class="content">
             <div>
-                <p class="text">The Holy Trinity of $BTC, $ETH and $DOGE go up: </p>
-                <p class="number transparent BTC" id="number">$4</p>
-                <p class="number transparent ETH" id="number">$4</p>
-                <p class="number transparent DOGE" id="number">$4</p>
+                <p class="text">The holy trinity of $BTC, $ETH, and $DOGE goes up: </p>
+                <p class="number1 transparentBTC" id="number1">$4</p>
+                <p class="number2 transparentETH" id="number2">$4</p>
+                <p class="number3 transparentDOGE" id="number3">$4</p>
                 <p class="text">Every Day</p>
             </div>
         </div>
@@ -43,24 +43,62 @@ ctype html>
     </div>
     </div>
     <script>
-        function handleData(data) {
-            const genesis = new Date(2009, 1, 3);
-            const now = new Date();
-            const deltaSeconds = now.getTime() - genesis.getTime();
-            const deltaDays = deltaSeconds / (1000 * 3600 * 24);
-            const nguDaily = data.ticker.price / deltaDays;
-            const el = document.getElementById("number");
-            if (el) {
-                el.innerHTML = `\$${nguDaily.toFixed(2)}`;
-                el.classList.remove("transparent BTC")
-            }
-        }
+                                                        function handleDGOGEData(data) {
+                                                            const genesis = new Date(2009, 1, 3);
+                                                            const now = new Date();
+                                                            const deltaSeconds = now.getTime() - genesis.getTime();
+                                                            const deltaDays = deltaSeconds / (1000 * 3600 * 24);
+                                                            const nguDaily = data.ticker.price / deltaDays;
+                                                            const el = document.getElementById("number3");
+                                                            if (el) {
+                                                                el.innerHTML = `\$${nguDaily.toFixed(2)}`;
+                                                                el.classList.remove("transparentDOGE")
+                                                            }
+
+                                                        }
+                                                        function handleETHData(data) {
+                                                            const genesis = new Date(2009, 1, 3);
+                                                            const now = new Date();
+                                                            const deltaSeconds = now.getTime() - genesis.getTime();
+                                                            const deltaDays = deltaSeconds / (1000 * 3600 * 24);
+                                                            const nguDaily = data.ticker.price / deltaDays;
+                                                            const el = document.getElementById("number2");
+                                                            if (el) {
+                                                                el.innerHTML = `\$${nguDaily.toFixed(2)}`;
+                                                                el.classList.remove("transparentETH")
+                                                            }
+
+                                                        }
+                                                        function handleBTCdata(data) {
+                        const genesis = new Date(2009, 1, 3);
+                        const now = new Date();
+                        const deltaSeconds = now.getTime() - genesis.getTime();
+                        const deltaDays = deltaSeconds / (1000 * 3600 * 24);
+                        const nguDaily = data.ticker.price / deltaDays;
+                                                        const el = document.getElementById("number1");
+                        if (el) {
+                            el.innerHTML = `\$${nguDaily.toFixed(2)}`;
+                            el.classList.remove("transparentBTC")
+                        }
+
+                    }
+                
+
 
         // TODO: error handling
-        fetch('https://api.cryptonator.com/api/ticker/btc-usd')
-            .then(response => response.json())
-            .then(data => handleData(data))
+                                                    fetch('https://api.cryptonator.com/api/ticker/doge-usd')
+                                                        .then(response => response.json())
+                                                        .then(data => handleDGOGEData(data));
+
+                                                    fetch('https://api.cryptonator.com/api/ticker/eth-usd')
+                                                        .then(response => response.json())
+                                                        .then(data => handleETHData(data));
+
+                                                       fetch('https://api.cryptonator.com/api/ticker/btc-usd')
+                                                            .then(response => response.json())
+                                                                            .then(data => handleBTCdata(data));
+                                                                    
+
     </script>
 </body>
-
 </html>
