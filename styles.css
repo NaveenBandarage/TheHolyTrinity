@@ -50,4 +50,12 @@ a:visited {
 
 .handle {
     margin: 0 0.5rem 0 0.5rem;
-}s
+}
+
+.values{
+    text-align: center;
+    
+}
+.values p{
+display: inline-block;    
+}
