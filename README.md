@@ -5,10 +5,9 @@ The Holy Trinity of cryptocurrencies (BTC, ETH and DOGE). Given the markets love
 
 
 ## Usage
-```
 ![image](https://user-images.githubusercontent.com/37656114/109436617-4c0b9a80-7a85-11eb-9184-5532f6dc5321.png)
 
-```
+
 
 ```
 
